@@ -1,0 +1,7 @@
+Dev:
+  SomeShit: "foo"
+  Key: 543543543
+
+# Prod:
+#   SomeOtherShit: "bar"
+#   Key: 123123123
