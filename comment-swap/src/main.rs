@@ -19,25 +19,27 @@ fn main() -> Result<(), &'static str> {
     let yaml_file = File::open(yaml_path)
         .expect("Could not open the yaml_path");
 
+    // IDK dude, maybe give AWK a go ... kinda fucked on MAC OS
     let mut sed = Command::new("sed");
 
-    for line in BufReader::new(yaml_file).lines().enumerate() {
-        if let Some('#') = line.1.as_ref().unwrap().chars().next() {
-            println!("This is a comment!");
-            sed
-            .arg(format!("-i '.yaml' {}s/^.{2}//g"), line.0)
-            // .arg(line.unwrap())
-            .status()
-            .expect("Could not uncomment the line");
-        }
-        else {
-            println!("This is NOT a comment!");
-            sed
-            .arg("-i '.yaml' $'i\\\n# '")
-            // .arg(line.unwrap())
-            .status()
-            .expect("Could not comment the line");
+    for (ln, line) in BufReader::new(yaml_file).lines().enumerate() {
+        if let Some('#') = line
+            .as_ref()
+            .expect("could not match the line ref")
+            .chars()
+            .next()
+        {
+            let cmd = format!("{}s/../*/ {}", ln, yaml_path);
+            sed.arg(cmd).spawn();
+
+        } else {
+        
+            // -i may not be used with stdin??
+            // I'm calling the fucking file
+            let cmd = format!("$'{}i\\\n# ' {}", ln, yaml_path);
+            sed.arg(cmd).spawn();
         }
     }
+
     Ok(())
 }
