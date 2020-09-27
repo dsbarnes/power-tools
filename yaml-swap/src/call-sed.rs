@@ -3,6 +3,14 @@ use std::str;
 use clap::App;
 use std::fs::File;
 use std::io::{BufReader, BufRead};
+/*
+ * The idea here was to call a sed command based on
+ * the first character of the line.
+ *
+ * Problem is ...something? It could be the MacOS env, it could
+ * be I'm doing it wrong in rust.
+ * In any case, AWK is more interesting - Thus, I move on
+ */
 
 fn main() -> Result<(), &'static str> {
     if cfg!(target_os = "windows") {
@@ -20,22 +28,19 @@ fn main() -> Result<(), &'static str> {
         .expect("Could not open the yaml_path");
 
     let mut sed = Command::new("sed");
-    let mut mv = Command::new("mv");
 
     for (ln, line) in BufReader::new(yaml_file).lines().enumerate() {
-        if let Some('#') = line
-            .as_ref()
-            .expect("could not match the line ref")
-            .chars()
-            .next()
+        if let Some('#') = line.chars().next()
         {
+            // sub any two continious characters with '*'
             let cmd = format!("s/../*/ {}", 
                 shellexpand::tilde("~/Documents/power-tools/comments.yaml"));
 
+            // This just does not work ...
+            // It works when called bare from the command line, but not from here
             sed.arg(cmd).status()
                 .expect("Could not do the sed stuff");
         }
     }
-
     Ok(())
 }

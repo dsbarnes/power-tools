@@ -47,6 +47,14 @@ other Unix utilities such as `cat`, `expr`, `head`, `seq`,
 
 # Learning AWK
 
+pattern-directed scanning and processing language <br>
+<br>
+
+Best place to learn is to read the book written by the authors.<br>
+[here](https://github.com/tpn/pdfs/blob/master/The%20AWK%20Programming%20Language%20(1988).pdf) <br>
+<br>
+
+
 # Learning GREP
 
 ### Similar Tools:
