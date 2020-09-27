@@ -1,21 +1,42 @@
-use clap::App;
-use std::io::{BufReader, BufRead};
 use std::fs::File;
+use std::fs;
+
+fn comment_line(text: String) -> String {
+    let mut comment = "# ".to_string();
+    comment.push_str(text.as_str());
+    comment
+}
+
+fn uncomment_line(text: String) -> String {
+    let mut new_text = String::with_capacity(text.len());
+    for (idx, letter) in text.chars().enumerate() {
+        if idx > 1 {
+            new_text.push(letter);
+        }
+    }
+    new_text
+}
 
 fn main() -> Result<(), &'static str>{
-    let args = App::new("swap")
-        .args_from_usage(
-            "<PATH>     'path to config.yaml'"
-            )
-        .get_matches();
-    let path = args.value_of("PATH").expect("
-        Could not get the path");
-    let yaml_file = File::open(path)
-        .expect("Could not open the yaml_path");
-
-    for (ln, line) in BufReader::new(yaml_file).lines().enumerate() {
-
+    // This is much better done with buffers to avoid reading
+    // the whole file into mem at once (like that matters in this case)
+    let yaml = fs::read_to_string("../comments.yaml")
+        .expect("Could not read the file into a string");
+    let mut swaped_file = vec![];
+    let lines = yaml.split('\n');
+    for line in lines {
+        if let Some('#') = line.chars().next() {
+            let new_line = uncomment_line(line.to_string());
+            swaped_file.push(new_line);
+        } else {
+            let new_line = comment_line(line.to_string());
+            swaped_file.push(new_line);
+        }
     }
+
+    let swapped_file = swaped_file.join("\n");
+    fs::write("../comments.yaml", swapped_file)
+        .expect("Could not write to the file");
 
     Ok(())
 }
