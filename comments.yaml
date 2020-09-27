@@ -1,8 +1,7 @@
-# Dev:
-#   one_shit: "key"
-#   two_shit: "key"
-# 
 Dev:
-  red_shit: "key"
-  blue_shit: "key"
-# 
+  one_shit: "key"
+  two_shit: "key"
+
+# Dev:
+#   red_shit: "key"
+#   blue_shit: "key"

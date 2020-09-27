@@ -20,7 +20,9 @@ fn uncomment_line(text: String) -> String {
 fn main() -> Result<(), &'static str>{
     // This is much better done with buffers to avoid reading
     // the whole file into mem at once (like that matters in this case)
-    let yaml = fs::read_to_string("../comments.yaml")
+
+    let path = shellexpand::tilde("~/Documents/Dev/rustDev/power-tools/comments.yaml");
+    let yaml = fs::read_to_string(path.as_ref())
         .expect("Could not read the file into a string");
     let mut swaped_file = vec![];
     let lines = yaml.split('\n');
@@ -35,7 +37,7 @@ fn main() -> Result<(), &'static str>{
     }
 
     let swapped_file = swaped_file.join("\n");
-    fs::write("../comments.yaml", swapped_file)
+    fs::write(path.as_ref(), swapped_file)
         .expect("Could not write to the file");
 
     Ok(())
