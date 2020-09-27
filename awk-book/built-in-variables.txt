@@ -1,0 +1,18 @@
+| Variable | Meaning                                    | Default |
+| ARGC     | number of command-line arguments           | -       |
+| ARGV     | array of command-line arguments            | -       |
+| FILENAME | name of current input file                 | -       |
+| FNR      | record number in current file              | -       |
+| FS       | controls the input field separator         | " "     |
+| NF       | number of fields in current record         | -       |
+| NR       | number of records read sp far              | -       |
+| OFMT     | output format for numbers                  | "%.6f"  |
+| OFS      | output field separator                     | " "     |
+| ORS      | output record separator                    | "\n"    |
+| RLENGTH  | lenght of string matched by match function | -       |
+| RS       | controls the input record separator        | "\n "   |
+| RSTART   | start of string matched by match function  | -       |
+| SUBSEP   | subscript separator                        | "\034"  |
+
+BEGIN and END have special meaning as well,
+but I don't think count as variables.

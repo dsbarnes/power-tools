@@ -1,0 +1,20 @@
+| Function                | Description                                           |
+| gsub(r, s )             | sub s for r globally in $0,                           |
+|                         | return number of subs                                 |
+| gsub(r, s, t)           | sub s for r globally in string t,                     |
+|                         | return number of subs made                            |
+| index(s, t)             | return first position of string t in s,               |
+|                         | or 0 if t is not present                              |
+| length(s)               | return the number of chars in s                       |
+| match(s, r)             | test whether s contains a substring matched by r      |
+|                         | return index or 0; set RSTART and RLENGTH             |
+| split(s, a)             | split s into array a on FS, return number of fields   |
+| split(s, a, fs)         | split s into array a on field separator fs            |
+|                         | return number of fields                               |
+| sprintf(fmt, expr-list) | return expr-list formatted according to fmt           |
+| sub(r, s)               | sub s for the leftmost longest substring of $0        |
+|                         | matched by r; return number of subs made              |
+| sub(r, s, t)            | sub s for the leftmost longest substring of t         |
+|                         | matched by r; return number of subs made              |
+| substr(s, p)            | return suffix of s starting at position p             |
+| substr(s, p, n)         | return substring of s of len n starting at position p |
