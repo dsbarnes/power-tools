@@ -1,25 +1,20 @@
 # Learning SED
-
 The sed utility reads the specified files, or the standard input if no files
 are specified, modifying the input as specified by a list of commands. <br>
-<br>
 
 The best way to learn it is to read `man sed` and `man re_format(7)`<br>
-<br>
 
 MacOS sed works slightly different with respect to, labels, branching, and
 the -i command. On Mac, one can only branch backwards, and -i <b>requires</b>
 a suffix. An empty string `-i '' -e '...'` will do.<br>
 
 read [this](https://unix.stackexchange.com/questions/13711/differences-between-sed-on-mac-osx-and-other-standard-sed) <br>
-<br>
 
 ### Some terminology to know:
 Pattern Space, Hold Space, Segment, Cycle, Branch <br>
 
 ### Common Commands:
 The most common command by far is `s///g`<br>
-<br>
 
 |Command | Description |
 |---|---|
@@ -32,47 +27,40 @@ The most common command by far is `s///g`<br>
 |`a\\\nfoo` | adds 'foo' AFTER finding a \n (similar to a in vim)|
 |`i\\\nfoo` | add 'foo' to the beginning of the line (similar to i in vim)|
 |`[addr(A)],[addr(B)]c\\\nfoo` | cuts from [addr(A)] to [addr(B)] and replaces wi|'foo'|
-<br>
 
 On mac os `a\` `i\` `c\` <b>must</b> be a an ANSI-C string $'i\\\n', or the \n will be read literaly.<br>
-<br>
 
 ### Similar Tools:
-
 sed can be used on its own, but it is often used in combination with
 other Unix utilities such as `cat`, `expr`, `head`, `seq`,
 `sort`, `tail`, `tr`, and `uniq`. <br>
 `wc`, `cut`, `paste`, `join`. <br>
-<br>
 
 # Learning AWK
-
 pattern-directed scanning and processing language <br>
-<br>
 
 Best place to learn is to read the book written by the authors.<br>
 [here](https://github.com/tpn/pdfs/blob/master/The%20AWK%20Programming%20Language%20(1988).pdf) <br>
-<br>
-
 
 # Learning GREP
+Literally `man grep` is all you need.<br>
+It's an easy to learn, and mega powerful program.<br>
+If you want Pearl compatible REs - `brew install grep --with-default-names`<br>
 
 ### Similar Tools:
-
-ack, ag, rg (ripgrep)
+ack, ag, rg (ripgrep), fzf<br>
 
 # Learning FZF
 
 
-# Learn VIM
 
+# Learn VIM
 Start with the vim tutor. Do it a few time. Learn how to use :help. <br>
 Vim is a matter of doing it, over and over, and one will find that, although
 it vim takes some months to really "get," vim is top two most powerful text
 manipulation tools. <br>
 
 ### Damn near mandatory plugins:
-
 Know how to use each:<br>
 vinegar <br>
 surround <br>
