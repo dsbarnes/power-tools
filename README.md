@@ -61,6 +61,7 @@ Basic commands one needs to know to use vim at all are left out. <br>
 For example:<br>
 
 `:help search-commands` <br>
+`:help substitute` <br>
 `:help object-motions` <br>
 `:help text-objects` <br>
 `:help jumplist` <br>
@@ -69,8 +70,10 @@ For example:<br>
 `:help g` <br>
 `:help mapleader` <br>
 `:help abbreviations` <br>
+`:help :Tabularize` after install will bring one to the 'walkthrough' <br>
+Probably no one ever reads `:help netrw` but for sure know it exits <br>
 
-Yeah, tags do kinda suck in vim <br>
+Yeah, tags do kinda suck in vim ('cept for C programs) <br>
 In terms of marks, tend to use a-z for within a base file, use A-Z to move
 to other files.<br>
 
@@ -78,6 +81,7 @@ to other files.<br>
 Know how to use each:<br>
 vinegar - Project tray / file explorer <br>
 surround - Easy mappings for changing quotes, brackets, and braces <br>
+tabular - makes tables
 polyglot - Tiny language server <br>
 coc - Auto completion <br>
 a theme - Gruvbox baby! <br>
@@ -85,3 +89,24 @@ a theme - Gruvbox baby! <br>
 ### Vimscripting:
 [Learn Vimscrip The Hard Way]( https://learnvimscriptthehardway.stevelosh.com/ )
 
+`:res` works for horizontal resizing, but for some funky reason vres has
+to be spelled out `vertical res +-N`, which is a silly oversight imo. <br>
+
+That would be a good start learning how to write functions in vimscript.
+A `:echo` command for plugin key mappings can be done quite pithily<br>
+
+Vinegar:
+  - "I" is the help menu. Press <return> on "Quick Help:" have fun.
+Surround:
+  - Add:    `ys` + text object (always necessary)
+  - Change: `cs` + text object (not always necessary)
+  - Remove: `ds` + text object (not always necessary)
+  - the `.` command needs you to specify the surroundings, otherwise works.
+Special Shit:
+  - `a` will surround with angle brackets
+  - `b` will surround with round brackets
+  - `r` will surround with square brackets
+  - `t` will open a tag, where we can add classes and such
+  - `l` and `\` will do /begin{ /end}
+  - `p` will break the line and open a line below
+  - `f` opens function dialog
