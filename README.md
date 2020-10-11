@@ -50,20 +50,38 @@ If you want Pearl compatible REs - `brew install grep --with-default-names`<br>
 ### Similar Tools:
 ack, ag, rg (ripgrep), fzf<br>
 
-# Learning FZF
-
-
 
 # Learn VIM
-Start with the vim tutor. Do it a few time. Learn how to use :help. <br>
+Start with the vim tutor. Do it a few times. Learn how to use :help. <br>
 Vim is a matter of doing it, over and over, and one will find that, although
-it vim takes some months to really "get," vim is top two most powerful text
-manipulation tools. <br>
+vim takes some months to "get," vim is top two most powerful text
+manipulation tools of all time. <br>
+
+Basic commands one needs to know to use vim at all are left out. <br>
+For example:<br>
+
+`:help search-commands` <br>
+`:help object-motions` <br>
+`:help text-objects` <br>
+`:help jumplist` <br>
+`:help changelist` <br>
+`:help mark` <br>
+`:help g` <br>
+`:help mapleader` <br>
+`:help abbreviations` <br>
+
+Yeah, tags do kinda suck in vim <br>
+In terms of marks, tend to use a-z for within a base file, use A-Z to move
+to other files.<br>
 
 ### Damn near mandatory plugins:
 Know how to use each:<br>
-vinegar <br>
-surround <br>
-polyglot <br>
-coc <br>
-a theme <br>
+vinegar - Project tray / file explorer <br>
+surround - Easy mappings for changing quotes, brackets, and braces <br>
+polyglot - Tiny language server <br>
+coc - Auto completion <br>
+a theme - Gruvbox baby! <br>
+
+### Vimscripting:
+[Learn Vimscrip The Hard Way]( https://learnvimscriptthehardway.stevelosh.com/ )
+
