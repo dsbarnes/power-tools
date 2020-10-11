@@ -16,17 +16,22 @@ Pattern Space, Hold Space, Segment, Cycle, Branch <br>
 ### Common Commands:
 The most common command by far is `s///g`<br>
 
-|Command | Description |
-|---|---|
-|`[addr]q` | quit after [addr]|
-|`d` | delete the pattern space; immediately start the next cycle|
-|`-n [addr]p` | print out the [1addr] line|
-|`n;` or `[addr(A)]~[arrd(B)]` | skip n or from [addr(A)] to [addr(B)]|
-|`{ commands }` | sequences commands|
-|`y/source-chars/dest-chars/` | Transliterate any characters in the pattern space whi|match any of the source-chars with the corresponding character in dest-chars. |
-|`a\\\nfoo` | adds 'foo' AFTER finding a \n (similar to a in vim)|
-|`i\\\nfoo` | add 'foo' to the beginning of the line (similar to i in vim)|
-|`[addr(A)],[addr(B)]c\\\nfoo` | cuts from [addr(A)] to [addr(B)] and replaces wi|'foo'|
+| Command                       | Description                                |
+| ---                           | ---                                        |
+| `[addr]q`                     | quit after [addr]
+| `d`                           | delete the pattern space;
+|                               | immediately start the next cycle
+| `-n [addr]p`                  | print out the [1addr] line
+| `n;` or `[addr(A)]~[arrd(B)]` | skip n or from [addr(A)] to [addr(B)]
+| `{ commands }`                | sequences commands
+| `y/source-chars/dest-chars/`  | Translate any of the source-chars with the
+|                               | corresponding character in dest-chars.
+| `a\\\nfoo`                    | adds 'foo' AFTER finding a \n
+|                               | (similar to a in vim)
+| `i\\\nfoo`                    | add 'foo' to the beginning of the line
+|                               | (similar to i in vim)
+| `[addr(A)],[addr(B)]c\\\nfoo` | cuts from [addr(A)] to [addr(B)] and
+|                               | replaces with 'foo'
 
 On mac os `a\` `i\` `c\` <b>must</b> be a an ANSI-C string $'i\\\n', or the \n will be read literaly.<br>
 
@@ -85,6 +90,7 @@ tabular - makes tables
 polyglot - Tiny language server <br>
 coc - Auto completion <br>
 a theme - Gruvbox baby! <br>
+I don't think of fugitive as necessary, bc git is fine on the command line.<br>
 
 ### Vimscripting:
 [Learn Vimscrip The Hard Way]( https://learnvimscriptthehardway.stevelosh.com/ )
@@ -93,20 +99,4 @@ a theme - Gruvbox baby! <br>
 to be spelled out `vertical res +-N`, which is a silly oversight imo. <br>
 
 That would be a good start learning how to write functions in vimscript.
-A `:echo` command for plugin key mappings can be done quite pithily<br>
-
-Vinegar:
-  - "I" is the help menu. Press <return> on "Quick Help:" have fun.
-Surround:
-  - Add:    `ys` + text object (always necessary)
-  - Change: `cs` + text object (not always necessary)
-  - Remove: `ds` + text object (not always necessary)
-  - the `.` command needs you to specify the surroundings, otherwise works.
-Special Shit:
-  - `a` will surround with angle brackets
-  - `b` will surround with round brackets
-  - `r` will surround with square brackets
-  - `t` will open a tag, where we can add classes and such
-  - `l` and `\` will do /begin{ /end}
-  - `p` will break the line and open a line below
-  - `f` opens function dialog
+A `:echo` command for plugin key mappings can be done quite pithily as well<br>
