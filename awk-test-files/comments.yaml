@@ -1,7 +1,0 @@
-Dev:
-  Something: "is here"
-  Somethingelse: "is there"
-
-Prod:
-  Broken: "again"
-  Stillbroken: "as usual"
